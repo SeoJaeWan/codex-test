@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
-import EmptyState from "@/components/EmptyState";
+import Button from "@/components/common/button";
+import EmptyState from "@/components/common/emptyState";
 import ReviewCard from "@/components/common/reviewCard";
 
 const ShowcasePage = () => {

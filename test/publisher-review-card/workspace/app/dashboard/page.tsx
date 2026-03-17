@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTodos } from "@/contexts/TodoContext";
-import StatsCard from "@/components/StatsCard";
-import TodoForm from "@/components/TodoForm";
-import NotificationList from "@/components/NotificationList";
+import StatsCard from "@/components/dashboard/statsCard";
+import TodoForm from "@/components/common/todoForm";
+import NotificationList from "@/components/dashboard/notificationList";
 
 export default function DashboardPage() {
   const { user, isAuthenticated, mounted } = useAuth();
