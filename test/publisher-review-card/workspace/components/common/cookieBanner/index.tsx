@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-export default function CookieBanner() {
+export interface CookieBannerProps {}
+
+const CookieBanner = ({}: CookieBannerProps) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,4 +40,6 @@ export default function CookieBanner() {
       </div>
     </div>
   );
-}
+};
+
+export default CookieBanner;

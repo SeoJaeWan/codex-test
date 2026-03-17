@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import Header from "./Header";
 import MobileNav from "./MobileNav";
@@ -10,12 +12,12 @@ export interface DashboardLayoutProps {
   currentPath?: string;
 }
 
-export default function DashboardLayout({
+const DashboardLayout = ({
   children,
   headerTitle = "대시보드",
   headerRight,
   currentPath = "/dashboard",
-}: DashboardLayoutProps) {
+}: DashboardLayoutProps) => {
   return (
     <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950">
       {/* Sidebar — hidden on mobile, visible from md */}
@@ -39,4 +41,6 @@ export default function DashboardLayout({
       </div>
     </div>
   );
-}
+};
+
+export default DashboardLayout;

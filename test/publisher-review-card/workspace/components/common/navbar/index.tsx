@@ -5,13 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 
+export interface NavbarProps {}
+
 const navLinks = [
   { href: "/dashboard", label: "대시보드" },
   { href: "/todos", label: "할 일" },
   { href: "/profile", label: "프로필" },
 ];
 
-export default function Navbar() {
+const Navbar = ({}: NavbarProps) => {
   const { isAuthenticated, user, logout, mounted } = useAuth();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -112,7 +114,9 @@ export default function Navbar() {
       <Breadcrumbs pathname={pathname} />
     </>
   );
-}
+};
+
+export default Navbar;
 
 function Breadcrumbs({ pathname }: { pathname: string }) {
   if (pathname === "/") return null;

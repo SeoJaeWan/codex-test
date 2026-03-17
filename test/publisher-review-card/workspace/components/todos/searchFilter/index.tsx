@@ -2,7 +2,7 @@
 
 type FilterType = "all" | "active" | "completed";
 
-interface Props {
+export interface SearchFilterProps {
   search: string;
   onSearchChange: (v: string) => void;
   filter: FilterType;
@@ -15,7 +15,7 @@ const filters: { value: FilterType; label: string }[] = [
   { value: "completed", label: "완료" },
 ];
 
-export default function SearchFilter({ search, onSearchChange, filter, onFilterChange }: Props) {
+const SearchFilter = ({ search, onSearchChange, filter, onFilterChange }: SearchFilterProps) => {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <input
@@ -44,4 +44,6 @@ export default function SearchFilter({ search, onSearchChange, filter, onFilterC
       </div>
     </div>
   );
-}
+};
+
+export default SearchFilter;

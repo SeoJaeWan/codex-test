@@ -5,7 +5,9 @@ import useGetNotifications from "@/hooks/apis/queries/useGetNotifications";
 
 type FilterType = "all" | "unread";
 
-export default function NotificationList() {
+export interface NotificationListProps {}
+
+const NotificationList = ({}: NotificationListProps) => {
   const { notifications, isLoading, error } = useGetNotifications();
   const [filter, setFilter] = useState<FilterType>("all");
 
@@ -94,4 +96,6 @@ export default function NotificationList() {
       )}
     </div>
   );
-}
+};
+
+export default NotificationList;

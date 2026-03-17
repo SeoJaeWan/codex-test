@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-export default function TodoForm({ onSubmit }: { onSubmit: (text: string) => string | null }) {
+export interface TodoFormProps {
+  onSubmit: (text: string) => string | null;
+}
+
+const TodoForm = ({ onSubmit }: TodoFormProps) => {
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -39,4 +43,6 @@ export default function TodoForm({ onSubmit }: { onSubmit: (text: string) => str
       </button>
     </form>
   );
-}
+};
+
+export default TodoForm;

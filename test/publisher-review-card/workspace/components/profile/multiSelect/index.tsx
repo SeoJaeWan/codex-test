@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-interface Props {
+export interface MultiSelectProps {
   label: string;
   options: string[];
   selected: string[];
@@ -10,7 +10,7 @@ interface Props {
   testId?: string;
 }
 
-export default function MultiSelect({ label, options, selected, onChange, testId }: Props) {
+const MultiSelect = ({ label, options, selected, onChange, testId }: MultiSelectProps) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -87,4 +87,6 @@ export default function MultiSelect({ label, options, selected, onChange, testId
       )}
     </div>
   );
-}
+};
+
+export default MultiSelect;

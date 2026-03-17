@@ -1,6 +1,11 @@
 "use client";
 
-export default function ErrorMessage({ message, onDismiss }: { message: string; onDismiss?: () => void }) {
+export interface ErrorMessageProps {
+  message: string;
+  onDismiss?: () => void;
+}
+
+const ErrorMessage = ({ message, onDismiss }: ErrorMessageProps) => {
   return (
     <div className="flex items-center justify-between rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200" data-testid="error-message">
       <span>{message}</span>
@@ -11,4 +16,6 @@ export default function ErrorMessage({ message, onDismiss }: { message: string; 
       )}
     </div>
   );
-}
+};
+
+export default ErrorMessage;

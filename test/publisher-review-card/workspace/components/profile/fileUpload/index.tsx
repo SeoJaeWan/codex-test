@@ -3,12 +3,12 @@
 import { useRef, useState } from "react";
 import { validateFile } from "@/lib/validators";
 
-interface Props {
+export interface FileUploadProps {
   value?: string;
   onChange: (fileName: string | undefined) => void;
 }
 
-export default function FileUpload({ value, onChange }: Props) {
+const FileUpload = ({ value, onChange }: FileUploadProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,4 +47,6 @@ export default function FileUpload({ value, onChange }: Props) {
       {error && <p className="mt-1 text-xs text-red-600" data-testid="file-upload-error">{error}</p>}
     </div>
   );
-}
+};
+
+export default FileUpload;

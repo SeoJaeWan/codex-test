@@ -3,14 +3,14 @@
 import { useState } from "react";
 import type { Todo } from "@/lib/types";
 
-interface Props {
+export interface TodoItemProps {
   todo: Todo;
   onToggle: (id: string) => void;
   onUpdate: (id: string, text: string) => string | null;
   onDelete: (id: string) => void;
 }
 
-export default function TodoItem({ todo, onToggle, onUpdate, onDelete }: Props) {
+const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
   const [editError, setEditError] = useState<string | null>(null);
@@ -88,4 +88,6 @@ export default function TodoItem({ todo, onToggle, onUpdate, onDelete }: Props) 
       )}
     </div>
   );
-}
+};
+
+export default TodoItem;

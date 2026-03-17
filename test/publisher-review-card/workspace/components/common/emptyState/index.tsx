@@ -1,6 +1,11 @@
 "use client";
 
-export default function EmptyState({ title, description }: { title: string; description?: string }) {
+export interface EmptyStateProps {
+  title: string;
+  description?: string;
+}
+
+const EmptyState = ({ title, description }: EmptyStateProps) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center" data-testid="empty-state">
       <svg className="mb-4 h-16 w-16 text-zinc-300 dark:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -10,4 +15,6 @@ export default function EmptyState({ title, description }: { title: string; desc
       {description && <p className="mt-1 text-sm text-zinc-500" data-testid="empty-state-description">{description}</p>}
     </div>
   );
-}
+};
+
+export default EmptyState;
