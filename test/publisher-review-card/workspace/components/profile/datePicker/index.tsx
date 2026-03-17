@@ -1,16 +1,23 @@
 "use client";
 
-interface Props {
+export interface DatePickerProps {
   label: string;
   value?: string;
   onChange: (v: string) => void;
   testId?: string;
 }
 
-export default function DatePicker({ label, value, onChange, testId }: Props) {
+const DatePicker = ({
+  label,
+  value,
+  onChange,
+  testId,
+}: DatePickerProps) => {
   return (
     <div>
-      <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">{label}</label>
+      <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        {label}
+      </label>
       <input
         type="date"
         value={value || ""}
@@ -20,4 +27,6 @@ export default function DatePicker({ label, value, onChange, testId }: Props) {
       />
     </div>
   );
-}
+};
+
+export default DatePicker;

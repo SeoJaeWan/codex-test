@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useState } from "react";
 
-interface Props {
+export interface MultiSelectProps {
   label: string;
   options: string[];
   selected: string[];
@@ -10,17 +10,15 @@ interface Props {
   testId?: string;
 }
 
-export default function MultiSelect({ label, options, selected, onChange, testId }: Props) {
+const MultiSelect = ({
+  label,
+  options,
+  selected,
+  onChange,
+  testId,
+}: MultiSelectProps) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
   const toggle = (option: string) => {
     onChange(
@@ -31,10 +29,19 @@ export default function MultiSelect({ label, options, selected, onChange, testId
   };
 
   return (
-    <div ref={ref} className="relative">
-      <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">{label}</label>
+    <div
+      ref={ref}
+      className="relative"
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+          setOpen(false);
+        }
+      }}
+    >
+      <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        {label}
+      </label>
 
-      {/* Selected chips */}
       {selected.length > 0 && (
         <div className="mb-2 flex flex-wrap gap-1">
           {selected.map((s) => (
@@ -48,7 +55,7 @@ export default function MultiSelect({ label, options, selected, onChange, testId
                 type="button"
                 onClick={() => toggle(s)}
                 className="hover:text-blue-600"
-                aria-label={`${s} 제거`}
+                aria-label={`${s} ?ì’“êµ…`}
               >
                 &times;
               </button>
@@ -63,11 +70,14 @@ export default function MultiSelect({ label, options, selected, onChange, testId
         className="w-full rounded-lg border border-zinc-300 px-4 py-2 text-left text-sm text-zinc-600 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800"
         data-testid={testId ? `${testId}-toggle` : "multiselect-toggle"}
       >
-        {selected.length > 0 ? `${selected.length}개 선택됨` : "선택하세요"}
+        {selected.length > 0 ? `${selected.length}åª›??ì¢ê¹®??` : "?ì¢ê¹®?ì„ê½­??"}
       </button>
 
       {open && (
-        <div className="absolute z-10 mt-1 w-full rounded-lg border border-zinc-200 bg-white py-1 shadow-lg dark:border-zinc-700 dark:bg-zinc-900" data-testid="multiselect-dropdown">
+        <div
+          className="absolute z-10 mt-1 w-full rounded-lg border border-zinc-200 bg-white py-1 shadow-lg dark:border-zinc-700 dark:bg-zinc-900"
+          data-testid="multiselect-dropdown"
+        >
           {options.map((opt) => (
             <label
               key={opt}
@@ -87,4 +97,6 @@ export default function MultiSelect({ label, options, selected, onChange, testId
       )}
     </div>
   );
-}
+};
+
+export default MultiSelect;

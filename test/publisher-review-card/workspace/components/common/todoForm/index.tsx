@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
-export default function TodoForm({ onSubmit }: { onSubmit: (text: string) => string | null }) {
+export interface TodoFormProps {
+  onSubmit: (text: string) => string | null;
+}
+
+const TodoForm = ({ onSubmit }: TodoFormProps) => {
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const err = onSubmit(text);
     if (err) {
@@ -23,20 +27,29 @@ export default function TodoForm({ onSubmit }: { onSubmit: (text: string) => str
         <input
           type="text"
           value={text}
-          onChange={(e) => { setText(e.target.value); setError(null); }}
-          placeholder="할 일을 입력하세요"
+          onChange={(e) => {
+            setText(e.target.value);
+            setError(null);
+          }}
+          placeholder="???靽膘摚 ?雮呾牥?靹応江??"
           className="w-full rounded-lg border border-zinc-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
           data-testid="todo-input"
         />
-        {error && <p className="mt-1 text-xs text-red-600" data-testid="todo-input-error">{error}</p>}
+        {error && (
+          <p className="mt-1 text-xs text-red-600" data-testid="todo-input-error">
+            {error}
+          </p>
+        )}
       </div>
       <button
         type="submit"
         className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
         data-testid="todo-add"
       >
-        추가
+        鐣半督?
       </button>
     </form>
   );
-}
+};
+
+export default TodoForm;

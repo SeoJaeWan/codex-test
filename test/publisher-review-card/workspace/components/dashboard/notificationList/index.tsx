@@ -5,7 +5,9 @@ import useGetNotifications from "@/hooks/apis/queries/useGetNotifications";
 
 type FilterType = "all" | "unread";
 
-export default function NotificationList() {
+export interface NotificationListProps {}
+
+const NotificationList = (_props: NotificationListProps) => {
   const { notifications, isLoading, error } = useGetNotifications();
   const [filter, setFilter] = useState<FilterType>("all");
 
@@ -47,7 +49,7 @@ export default function NotificationList() {
               : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
           }`}
         >
-          전체
+          ?ê¾©ê»œ
         </button>
         <button
           data-testid="notifications-filter-unread"
@@ -58,7 +60,7 @@ export default function NotificationList() {
               : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
           }`}
         >
-          읽지 않음
+          ?ìŽŒ? ?ë”†ì“¬
         </button>
       </div>
 
@@ -67,7 +69,7 @@ export default function NotificationList() {
           data-testid="notifications-empty"
           className="py-8 text-center text-sm text-zinc-400"
         >
-          알림이 없습니다
+          ?ëš®â”???ë†ë’¿?ëˆë–Ž
         </p>
       ) : (
         <ul data-testid="notifications-list" className="space-y-2">
@@ -94,4 +96,6 @@ export default function NotificationList() {
       )}
     </div>
   );
-}
+};
+
+export default NotificationList;

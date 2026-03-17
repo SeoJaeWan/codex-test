@@ -2,7 +2,7 @@
 
 type FilterType = "all" | "active" | "completed";
 
-interface Props {
+export interface SearchFilterProps {
   search: string;
   onSearchChange: (v: string) => void;
   filter: FilterType;
@@ -10,19 +10,24 @@ interface Props {
 }
 
 const filters: { value: FilterType; label: string }[] = [
-  { value: "all", label: "전체" },
-  { value: "active", label: "진행중" },
-  { value: "completed", label: "완료" },
+  { value: "all", label: "?昃╆粶" },
+  { value: "active", label: "铵炾惊牖句互?" },
+  { value: "completed", label: "?昃" },
 ];
 
-export default function SearchFilter({ search, onSearchChange, filter, onFilterChange }: Props) {
+const SearchFilter = ({
+  search,
+  onSearchChange,
+  filter,
+  onFilterChange,
+}: SearchFilterProps) => {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <input
         type="search"
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
-        placeholder="할 일 검색..."
+        placeholder="????瀵兟€??.."
         className="rounded-lg border border-zinc-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
         data-testid="search-input"
       />
@@ -44,4 +49,6 @@ export default function SearchFilter({ search, onSearchChange, filter, onFilterC
       </div>
     </div>
   );
-}
+};
+
+export default SearchFilter;
