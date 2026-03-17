@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
-import FileUpload from "@/components/FileUpload";
-import DatePicker from "@/components/DatePicker";
-import MultiSelect from "@/components/MultiSelect";
+import FileUpload from "@/components/profile/fileUpload";
+import DatePicker from "@/components/profile/datePicker";
+import MultiSelect from "@/components/profile/multiSelect";
 
 const SKILL_OPTIONS = ["JavaScript", "TypeScript", "React", "Next.js", "Python", "Go", "Rust", "CSS"];
 
