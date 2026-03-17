@@ -19,7 +19,7 @@
 ## Run
 
 - Claude: `test/frontend-profile-edit-hook/plans/frontend-profile-edit-hook/plan.md의 Phase 1을 실행해줘`
-- Codex: `Use $planner-lite to execute test/frontend-profile-edit-hook/plans/frontend-profile-edit-hook/plan.md`
+- Codex: `/agent planner test/frontend-profile-edit-hook/plans/frontend-profile-edit-hook/plan.md를 실행해`
 
 ## Validate
 

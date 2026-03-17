@@ -20,7 +20,7 @@
 ## Run
 
 - Claude: `test/publisher-review-card/plans/publisher-review-card/plan.md의 Phase 1을 실행해줘`
-- Codex: `Use $planner-lite to execute test/publisher-review-card/plans/publisher-review-card/plan.md`
+- Codex: `/agent planner test/publisher-review-card/plans/publisher-review-card/plan.md를 실행해`
 
 ## Validate
 
