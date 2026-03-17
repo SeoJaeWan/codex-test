@@ -4,11 +4,11 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTodos } from "@/contexts/TodoContext";
-import TodoForm from "@/components/common/todoForm";
-import TodoItem from "@/components/todos/todoItem";
-import SearchFilter from "@/components/todos/searchFilter";
-import EmptyState from "@/components/common/emptyState";
-import ErrorMessage from "@/components/common/errorMessage";
+import TodoForm from "@/components/TodoForm";
+import TodoItem from "@/components/TodoItem";
+import SearchFilter from "@/components/SearchFilter";
+import EmptyState from "@/components/EmptyState";
+import ErrorMessage from "@/components/ErrorMessage";
 
 type FilterType = "all" | "active" | "completed";
 

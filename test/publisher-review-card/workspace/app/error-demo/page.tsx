@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ErrorMessage from "@/components/common/errorMessage";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default function ErrorDemoPage() {
   const [throwError, setThrowError] = useState(false);
